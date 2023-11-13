@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./componentCSS/ScreenRecordingComponent.css";
+import "./components/ScreenRecorder.css";
 
-function ScreenRecordingComponent({ switchToAnalysis }) {
+function ScreenRecorder({ switchToAnalysis }) {
   const [isRecording, setIsRecording] = useState(false);
   const [recordingCount, setRecordingCount] = useState(1);
   const mediaRecorderRef = useRef(null);
@@ -23,7 +23,7 @@ function ScreenRecordingComponent({ switchToAnalysis }) {
             // Iniciar una nueva grabación
             recorder.start();
           }
-        }, 40000); // 40 seconds interval
+        }, 10000); // 10 seconds interval
 
         recorder.ondataavailable = (e) => {
           if (e.data.size > 0) {
@@ -93,7 +93,7 @@ function ScreenRecordingComponent({ switchToAnalysis }) {
   };
 
   return (
-    <div className="ScreenRecordingContainer">
+    <div className="ScreenRecorderContainer">
       <h2>Interfaz de Grabación de Pantalla</h2>
       <video className="VideoPreview" id="preview" autoPlay muted></video>
       <div className="ButtonContainer">
@@ -113,11 +113,11 @@ function ScreenRecordingComponent({ switchToAnalysis }) {
           Detener Grabación
         </button>
         <button className="Button" onClick={switchToAnalysis}>
-          Cambiar a Análisis
+          Cambiar a AnálisisScreenRecorder
         </button>
       </div>
     </div>
   );
 }
 
-export default ScreenRecordingComponent;
+export default ScreenRecorder;
