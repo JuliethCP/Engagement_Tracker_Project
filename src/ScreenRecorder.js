@@ -92,7 +92,7 @@ function ScreenRecorder({ switchToAnalysis }) {
   };
 
   return (
-    <div className="ScreenRecordingContainer">
+    <div className="ScreenRecorderContainer">
       <h2>Interfaz de Grabación de Pantalla</h2>
       <video className="VideoPreview" id="preview" autoPlay muted></video>
       <div className="ButtonContainer">
