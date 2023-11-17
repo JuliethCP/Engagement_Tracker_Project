@@ -1,4 +1,4 @@
-**Algoritmo para la grabación de pantalla en React**
+## **Algoritmo para la grabación de pantalla en React**
 En este documento, se explicará cómo implementar una funcionalidad de captura de pantalla en una aplicación React. Esta funcionalidad está vinculada a un grabador de pantalla que almacena videos en intervalos regulares de 50 segundos. Los videos generados se guardan localmente en la carpeta de descargas del PC. El propósito de esta funcionalidad es grabar la pantalla de reuniones virtuales para posteriormente con otro algoritmo, analizar el comportamiento de los participantes en la reunión.
 
 ## Instalación
