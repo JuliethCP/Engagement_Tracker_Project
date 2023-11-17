@@ -111,9 +111,6 @@ function ScreenRecorder({ switchToAnalysis }) {
         >
           Detener Grabación
         </button>
-        <button className="Button" onClick={switchToAnalysis}>
-          Cambiar a Análisis
-        </button>
       </div>
     </div>
   );
