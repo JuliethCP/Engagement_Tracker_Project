@@ -36,11 +36,7 @@ imagenes
 Como la aplicación está constantemente grabando la pantalla, es importante tener en cuenta que el rendimiento de la aplicación se puede ver afectado. Por lo tanto, se recomienda no tener demasiadas pestañas abiertas en el navegador y no tener demasiadas aplicaciones abiertas en el PC.
 Pero lo más importante es que al estar grabando los videos repetidas veces, varias veces se abrirán ventanas de selección de qué pantalla capturar, pero solo hay que ignorarlas y seguir grabando. En cualquier caso, si se ocupa detener la grabación nada más se recarga la página como se mencionó anteriormente.
 
-## Implementación del algoritmo para el reconocimiento de emociones
 
-Ir al siguiente repositorio para continuar con las instrcciones:
-
-https://github.com/JuliethCP/puppeteer.git
 
 ## Lectura de datos en formato JSON
 *Debes instalar esta libreria*
@@ -94,3 +90,8 @@ El componente espera que el archivo JSON tenga una estructura específica, como 
 }
 ```
 Asegúrese de que su archivo JSON cumpla con esta estructura para que el componente pueda interpretar los datos correctamente.
+## Implementación del algoritmo para el reconocimiento de emociones
+
+Ir al siguiente repositorio para continuar con las instrcciones:
+
+https://github.com/JuliethCP/puppeteer.git
