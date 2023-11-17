@@ -44,8 +44,6 @@ Pero lo más importante es que al estar grabando los videos repetidas veces, var
 npm install react react-dom file-loader
 ```
 
-Por supuesto, aquí tienes una breve explicación de cómo funciona el componente:
-
 Componente de análisis de emociones
 Este componente de React está diseñado para mostrar los resultados del análisis emocional a partir de un archivo JSON. Aquí hay una breve descripción de cómo funciona:
 
