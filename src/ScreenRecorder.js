@@ -1,53 +1,60 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./ScreenRecorder.css";
+import "../src/ScreenRecorder.css";
 
-function ScreenRecorder( ) {
+function ScreenRecorder({ switchToAnalysis }) {
   const [isRecording, setIsRecording] = useState(false);
   const [recordingCount, setRecordingCount] = useState(1);
   const mediaRecorderRef = useRef(null);
   const mediaChunksRef = useRef([]);
 
   useEffect(() => {
+    let interval;
+  
     const startRecording = async () => {
       try {
         const stream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: true });
         const recorder = new MediaRecorder(stream);
         mediaRecorderRef.current = recorder;
-
-        setInterval(() => {
+  
+        interval = setInterval(() => {
+          // Detener la grabación actual
+          recorder.stop();
+          // Limpiar los chunks para la próxima grabación
+          mediaChunksRef.current = [];
+          // Iniciar una nueva grabación solo si está grabando
           if (isRecording) {
-            // Detener la grabación actual
-            recorder.stop();
-            // Limpiar los chunks para la próxima grabación
-            mediaChunksRef.current = [];
-            // Iniciar una nueva grabación
             recorder.start();
           }
-        }, 40000); // 10 seconds interval
-
+        }, 30000); // 10 seconds interval
+  
         recorder.ondataavailable = (e) => {
           if (e.data.size > 0) {
             mediaChunksRef.current.push(e.data);
           }
         };
-
+  
         recorder.onstop = () => {
           const mediaBlob = new Blob(mediaChunksRef.current, { type: "video/mp4" });
-          const url = URL.createObjectURL(mediaBlob);
-          const a = document.createElement("a");
-          a.href = url;
-          a.download = `captura_${recordingCount}.mp4`;
-          a.click();
-          URL.revokeObjectURL(url);
-
+  
+          // Verificar el tamaño del Blob
+          if (mediaBlob.size > 100 * 1024) {
+            const url = URL.createObjectURL(mediaBlob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `captura${recordingCount}.mp4`;
+            a.click();
+            URL.revokeObjectURL(url);
+          }
+  
           // Limpiar los chunks para la próxima grabación
           mediaChunksRef.current = [];
           setRecordingCount((prevCount) => prevCount + 1);
         };
-
+  
         recorder.start();
-
+  
         return () => {
+          clearInterval(interval);
           if (recorder.state !== "inactive") {
             recorder.stop();
           }
@@ -104,7 +111,9 @@ function ScreenRecorder( ) {
         >
           Detener Grabación
         </button>
-        
+        <button className="Button" onClick={switchToAnalysis}>
+          Cambiar a Análisis
+        </button>
       </div>
     </div>
   );
