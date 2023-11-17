@@ -2,12 +2,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  justify-content: center;
   background-color: #f7f7f7;
-  border: 1px solid #ddd;
+  width: 70%; /* Puedes ajustar el tamaño según tus necesidades */
+  max-width: 800px;
+  padding: 20px;
+  border: 1px solid #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 8% auto 0; /* Centrado vertical y horizontal */
+  transition: all 0.3s ease; /* Transición suave */
+
+  /* Estilo adicional */
+  box-sizing: border-box; /* Evita que el padding afecte al tamaño total del contenedor */
 }
+
+/* Estilo hover opcional */
+.ScreenRecorderContainer:hover {
+  transform: scale(1.05);
+}
+
 h2{
   color: #000000;
 }
