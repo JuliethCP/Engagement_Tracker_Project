@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ScreenRecorder from './ScreenRecorder';
+import ScreenRecorder from './ScreenRecorder.js';
 
 const EmotionAnalysisComponent = () => {
   const [jsonData, setJsonData] = useState(null);
@@ -27,27 +27,35 @@ const EmotionAnalysisComponent = () => {
 
   const calculateAverages = (data, blockSize) => {
     const averagedData = [];
+  
     for (let i = 0; i < data.length; i += blockSize) {
       const block = data.slice(i, i + blockSize);
-
+  
       if (block.length > 0) {
         const averagedBlock = {
           timeRange: `${i + 1}s - ${(i + block.length)}s`,
-          attention: block.reduce((acc, val) => acc + val.attention.avg, 0) / block.length,
-          emotion_Happy: block.reduce((acc, val) => acc + val.emotion_Happy.avg, 0) / block.length,
-          emotion_Sad: block.reduce((acc, val) => acc + val.emotion_Sad.avg, 0) / block.length,
-          emotion_Angry: block.reduce((acc, val) => acc + val.emotion_Angry.avg, 0) / block.length,
-          emotion_Surprise: block.reduce((acc, val) => acc + val.emotion_Surprise.avg, 0) / block.length,
-          emotion_Disgust: block.reduce((acc, val) => acc + val.emotion_Disgust.avg, 0) / block.length,
-          emotion_Fear: block.reduce((acc, val) => acc + val.emotion_Fear.avg, 0) / block.length,
-          emotion_Neutral: block.reduce((acc, val) => acc + val.emotion_Neutral.avg, 0) / block.length,
+          attention: calculateAverage(block, 'attention'),
+          emotion_Happy: calculateAverage(block, 'emotion_Happy'),
+          emotion_Sad: calculateAverage(block, 'emotion_Sad'),
+          emotion_Angry: calculateAverage(block, 'emotion_Angry'),
+          emotion_Surprise: calculateAverage(block, 'emotion_Surprise'),
+          emotion_Disgust: calculateAverage(block, 'emotion_Disgust'),
+          emotion_Fear: calculateAverage(block, 'emotion_Fear'),
+          emotion_Neutral: calculateAverage(block, 'emotion_Neutral'),
         };
-
+  
         averagedData.push(averagedBlock);
       }
     }
+  
     return averagedData;
   };
+  
+  const calculateAverage = (block, property) => {
+    const sum = block.reduce((acc, val) => acc + (val[property] ? val[property].avg : 0), 0);
+    return sum / block.length;
+  };
+  
 
   const analyzeAttention = (data) => {
     const lowAttentionBlocks = data.filter((block, index) => block.attention.avg < 0.96);// aqui se cambie al promedio de atencion

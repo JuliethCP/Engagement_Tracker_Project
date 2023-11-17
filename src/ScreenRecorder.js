@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../src/ScreenRecorder.css";
-import EmotionAnalysisComponent from "./EmotionAnalysisComponent";
+import EmotionAnalysisComponent from "./EmotionAnalysisComponent.js";
 
 function ScreenRecorder() {
   const [isRecording, setIsRecording] = useState(false);
