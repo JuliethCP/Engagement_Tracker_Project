@@ -91,6 +91,6 @@ El componente espera que el archivo JSON tenga una estructura específica, como 
 Asegúrese de que su archivo JSON cumpla con esta estructura para que el componente pueda interpretar los datos correctamente.
 ## Implementación del algoritmo para el reconocimiento de emociones
 
-Ir al siguiente repositorio para continuar con las instrcciones:
+Ir al siguiente repositorio para continuar con las instrucciones:
 
 https://github.com/JuliethCP/puppeteer.git
