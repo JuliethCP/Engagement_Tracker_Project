@@ -25,12 +25,13 @@ Esto abrirá la aplicación en tu navegador en http://localhost:3000 . La págin
 
 2. **Pulsar el botón Iniciar Grabación y seleciona la pestaña o ventana a capturar:**
 
-imagenes
+![image](https://github.com/JuliethCP/Engagement_Tracker_Project/assets/102711785/ee82edca-dead-43c3-855c-d17a94104e68)
+
 
 3. **Parar la grabación:**
-Para parar la grabación, basta con tocar el botón de dejar de compartir o recargar la página.
+Para parar la grabación, basta con tocar el botón de Dejar de compartir o Recargar la página.
+![image](https://github.com/JuliethCP/Engagement_Tracker_Project/assets/102711785/bc7fcd8f-e813-4d8e-b902-c6bb6bbf3dbc)
 
-imagenes
 
 3. **Elementos a tener en cuenta:**
 Como la aplicación está constantemente grabando la pantalla, es importante tener en cuenta que el rendimiento de la aplicación se puede ver afectado. Por lo tanto, se recomienda no tener demasiadas pestañas abiertas en el navegador y no tener demasiadas aplicaciones abiertas en el PC.
@@ -54,7 +55,7 @@ Este componente se utiliza integrándolo en tu aplicación React. Asegúrese de 
 
 *Ejemplo de como importarlo*
 ```bash
-import EmotionAnalysisComponent from "./components/EmotionAnalysisComponent ";
+import EmotionAnalysisComponent from "./EmotionAnalysisComponent.js";
 ```
 
 Visualización de resultados:
