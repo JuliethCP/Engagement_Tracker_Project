@@ -94,3 +94,9 @@ Asegúrese de que su archivo JSON cumpla con esta estructura para que el compone
 Ir al siguiente repositorio para continuar con las instrucciones:
 
 https://github.com/JuliethCP/puppeteer.git
+
+## Integrantes
+
+- Julieth Campos Pérez
+- Allan González Jarquín
+- Nicole Jara González
